@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/mdbootstrap/css/mdb.min.css}" rel="stylesheet">
+    <link th:href="@{/templates/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .navbar-nav .nav-item:hover .nav-link {
+            color: rgb(34, 233, 239) !important;
+        }
+
+        .navbar-nav {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .navbar-nav li {
+            margin: 0 10px;
+        }
+
+        .custom-button:last-child {
+            margin-right: 10px;
+        }
+
+        .star-rating {
+            color: #ffbb00;
+        }
+
+        .star-rating .fa-star {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div style="z-index: -100; width: 100%; height: 630px;">
+        <img alt="playa" th:src="@{/img/bannerProduct.png}" height="630px" width="100%" style="position: absolute;">
+        <nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary" style="height: 105px; position: relative;">
+            <div class="container-fluid" style="width: 50%;">
+                <div>
+                    <a href="#">
+                        <img alt="logo-pangea" th:src="@{/img/logoPangea.png}" height="80">
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="width: 1080px;">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-weight: bold; font-size: 18px; white-space: nowrap;">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/pangea/inicio}">INICIO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/pangea/nosotros}">NOSOTROS</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/pangea/promociones}">PROMOCIONES</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/pangea/contacto}">CONTACTO</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/login}">INTRANET</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" th:href="@{/pangea/cart}">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span th:text="${cart != null ? cart.size() : 0}"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <section class="mb-5"></section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img id="paquete-imagen" alt="cartagena" th:src="@{/img/riberaMaya.jpeg}" class="img-fluid mb-3">
+                </div>
+                <div class="col-md-6">
+                    <h2 id="paquete-nombre" class="mb-2" style="text-align: center;"><b>Cancún y Rivera Maya</b></h2>
+                    <div class="d-flex justify-content-center star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h4 id="paquete-precio" style="text-align: center; padding-top: 20px;">Precio: $2800.00</h4>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-primary me-2 custom-button add-to-cart" data-id="1">Agregar al carrito</button>
+                        <a th:href="@{/pangea/checkout}">
+                            <button type="button" class="btn btn-danger custom-button">Comprar</button>
+                        </a>
+                    </div>
+                    <p id="paquete-descripcion" class="mb-4" style="text-align: justify; padding-top: 20px;">Cancún es una ciudad ubicada en la costa noreste de la península de Yucatán, en el estado de Quintana Roo, México. Es uno de los destinos turísticos más populares del país y del mundo, famoso por sus playas de arena blanca y aguas cristalinas del mar Caribe. Fundada en la década de 1970 como un centro turístico, Cancún se ha desarrollado rápidamente, ofreciendo una amplia gama de hoteles de lujo, resorts todo incluido, restaurantes, bares y centros comerciales.</p>
+                    <p class="mb-4" style="text-align: justify; padding-top: 20px;">La Rivera Maya ofrece una amplia gama de actividades para los visitantes, como buceo, snorkel, exploración de cenotes, visitas a parques temáticos como Xcaret y Xel-Há, y tours a sitios arqueológicos mayas como Cobá.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div>
+            <h2 style="text-align: center; padding-top: 50px;"><b>Otros paquetes de viajes</b></h2>
+        </div>
+    </section>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 p-4">
+                    <a th:href="@{/pangea/barranquilla}"><img alt="Barranquilla" th:src="@{/img/caribeB.jpg}" class="img-fluid mb-3"></a>
+                    <p style="text-align: center;"><b>BARRANQUILLA</b></p>
+                </div>
+                <div class="col-md-3 p-4">
+                    <a th:href="@{/pangea/cartagena}"><img alt="Cartagena" th:src="@{/img/PromoCartagena.jpeg}" class="img-fluid mb-3"></a>
+                    <p style="text-align: center;"><b>CARTAGENA</b></p>
+                </div>
+                <div class="col-md-3 p-4">
+                    <a th:href="@{/pangea/cancun}"><img alt="Cancún" th:src="@{/img/riberaMaya.jpeg}" class="img-fluid mb-3"></a>
+                    <p style="text-align: center;"><b>CANCÚN</b></p>
+                </div>
+                <div class="col-md-3 p-4">
+                    <a th:href="@{/pangea/caribeCartagena}"><img alt="Caribe Cartagena" th:src="@{/img/caribeC.png}" class="img-fluid mb-3"></a>
+                    <p style="text-align: center;"><b>CARIBE CARTAGENA</b></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            updateCartCount();
+
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', () => {
+                    const paquete = {
+                        id: button.getAttribute('data-id'),
+                        nombre: document.getElementById('paquete-nombre').innerText,
+                        precio: document.getElementById('paquete-precio').innerText.replace('Precio: $', ''),
+                        descripcion: document.getElementById('paquete-descripcion').innerText,
+                        imagen: document.getElementById('paquete-imagen').src
+                    };
+                    addToCart(paquete);
+                });
+            });
+
+            function addToCart(paquete) {
+                cart.push(paquete);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+
+                // Enviar paquete al backend usando AJAX
+                fetch('/pangea/cart/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(paquete)
+                }).then(response => {
+                    if (response.ok) {
+                        console.log('Paquete agregado al carrito');
+                    } else {
+                        console.error('Error al agregar el paquete al carrito');
+                    }
+                });
+            }
+
+            function updateCartCount() {
+                const cartCount = document.querySelector('.fa-shopping-cart + span');
+                cartCount.textContent = cart.length;
+            }
+        });
+    </script>
+    <footer>
+        <section class="mb-5" style="background-image: url('/img/fondoFooter.jpg'); padding: 50px;">
+            <div class="container">
+                <div class="row" style="background-color: white; padding-top: 50px; padding-bottom: 0px;">
+                    <div class="col-md-6">
+                        <img alt="Pangea" th:src="@{/img/logonegro.png}" style="width: 90px; height: 90px;">
+                        <p style="text-align: justify;">Nuestra agencia de viajes - Pangea Perú es confiable y nace en el año 2015 con un grupo de estudiantes de turismo a través de una iniciativa que busca replicar los mecanismos de viajes que se emplean en Norteamérica y Europa, motivando a realizar todo tipo de travesías mediante incentivos únicos que logran materializar cada viaje que se tiene pensado.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h3 style="color:black; text-align: center;"><b>¡Visítanos!</b></h3>
+                        <img alt="mapa" th:src="@{/img/mapa.png}">
+                    </div>
+                    <div style="display: flex; justify-content: center; align-items: center;">
+                        <img alt="pie" th:src="@{/img/pie.png}">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div>
+            <p style="color:black; text-align: center;">Todos los Derechos Reservados: Copyright Pangea / reservas@pangea.com.pe</p>
+        </div>
+    </footer>
+</body>
+</html>

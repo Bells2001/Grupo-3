@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link th:href="@{/mdbootstrap/css/mdb.min.css}" rel="stylesheet">
+<link th:href="@{/templates/style.css}" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<style>
+    /* Estilo personalizado para cambiar el color del texto al pasar el mouse */
+    .navbar-nav .nav-item:hover .nav-link {
+  color: rgb(34,233,239) !important;
+}
+
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Alinear los elementos al final del contenedor */
+}
+
+.navbar-nav li {
+    margin-left: 10px; /* Espacio entre elementos */
+    margin-right: 10px; /* Reducir el margen derecho */
+}
+.whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background-color: #25d366;
+            color: #fff;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            align-content: center;
+            line-height: 80px;
+            font-size: 50px;
+        }
+
+.whatsapp-icon:hover {
+            background-color: #128c7e;
+        }
+  </style>
+<body>
+<!-- DIV PARA LA IMAGEN DE FONDO DE PLAYA -->
+<div style="z-index: -100;width: 100%;height: 630px;">
+	<!-- CONTENEDOR TEXTO PARA IMAGEN DE FONDO -->
+	<img alt="contacto" th:src="@{/img/FondoPromo.jpg}" height="630px" width="100%" style="position: absolute">
+	
+<!--------------------------------------------->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-body-tertiary " style="height: 105px;position: relative;">
+  <div class="container-fluid" style="width: 50%;">
+  	<!-- Container LOGO -->
+    <div>
+    	<a href="#">
+    		<img alt="logo-pangea" th:src="@{/img/logoPangea.png}"
+          	height="80">
+    	</a>
+    </div>
+    <!--------------------------------->
+    <!-- CONTENEDOR RESTANTE -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent" style="width: 1080px;">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="font-weight: bold; font-size: 18px; white-space: nowrap;">
+        <li class="nav-item">
+          <a class="nav-link text-white" th:href="@{/pangea/inicio}">INICIO</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" th:href="@{/pangea/nosotros}">NOSOTROS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" th:href="@{/pangea/promociones}">PROMOCIONES</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" th:href="@{/pangea/contacto}">CONTACTO</a>
+        </li>
+        <li class="nav-item" style="display: inline-block;">
+    	  <a class="nav-link text-white" th:href="@{/Auth/Initial}">INTRANET</a>
+		</li>
+		<li class="nav-item">
+            <a class="nav-link text-white" th:href="@{/pangea/cart}">
+                <i class="fas fa-shopping-cart"></i>
+                <span id="cart-count" th:text="${cart != null ? cart.size() : 0}"></span> <!-- Mostrar el número de elementos en el carrito -->
+            </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>
+
+<!-- SEGUNDA SECCIÓN TEXTO -->
+	<section>
+		<div>
+			<h4 style="text-align: center; padding-top: 50px;">CONOCE TODAS LAS</h4>
+		</div>
+		<div>
+			<h1 style="text-align: center; padding-top: 5px; padding-bottom: 10px"> <b>PROMOCIONES QUE TENEMOS PARA TI</b></h1>
+		</div>
+	</section>
+<!--------------------------->
+
+<!-- TERCERA Y CUARTA SECCIÓN/PROMOCIONES -->
+<!-- Espacio entre secciones -->
+    <section class="mb-5"></section>
+
+	<section>
+		<div class="container">
+		    <div class="row">
+		        <div class="col-md-4">
+		            <img alt="santaMarta" th:src="@{/img/caribeSM.png}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/santaMarta}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+					</div>
+		        </div>
+		        <div class="col-md-4">
+		            <img alt="CaribeCartagena" th:src="@{/img/caribeC.png}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/caribeCartagena}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+  					</div>
+		        </div>
+		        <div class="col-md-4">
+		            <img alt="CaribeBarranquilla" th:src="@{/img/caribeB.jpg}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/barranquilla}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+  					</div>
+		        </div>
+		    </div>
+		</div>
+	</section>
+	
+<!-- Espacio entre secciones -->
+    <section class="mb-5"></section>
+    
+	<section>
+		<div class="container">
+		    <div class="row">
+		        <div class="col-md-4">
+		            <img alt="riberaMaya" th:src="@{/img/riberaMaya.jpeg}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/cancun}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+					</div>
+		        </div>
+		        <div class="col-md-4">
+		            <img alt="PromoCartagena" th:src="@{/img/PromoCartagena.jpeg}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/cartagena}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+  					</div>
+		        </div>
+		        <div class="col-md-4">
+		            <img alt="riveraMaya" th:src="@{/img/riveraMaya2.jpeg}" class="img-fluid mb-3">
+		            <div class="d-flex justify-content-center">
+						<a th:href="@{/pangea/riveraMaya}">
+    						<button type="button" class="btn btn-primary">Ver Paquete</button>
+  						</a>
+  					</div>
+		        </div>
+		    </div>
+		</div>
+	</section>
+<!--------------------------->
+<!-- Espacio entre secciones -->
+<section class="bg-image" style="background-image: url('/img/cabaña.jpeg'); height: 650px; z-index: -1; margin-top: 40px; padding: 100px 0px">
+	<div class="row d-flex justify-content-center">
+		<div class="col-md-4" style="z-index: 1; display: flex; align-items: center; background-color: black;">
+    		<div style="width: 100%; padding: 10px;">
+        		<div class="col-12 mb-3">
+            		<h3 class="text-white display-6" style="font-weight: bolder;">El mundo en tus manos</h3>
+        		</div>
+        		<div class="col-12 mb-5">
+            		<p class="text-white h6" style="line-height: 1.7; list-style-position: inside; text-align: justify;">En nuestra agencia de viajes nos caracterizamos por ser confiables y siempre brindarte una experiencia 
+            		inolvidable desde que ingresas por nuestra puerta hasta que finalizas satisfactoriamente tu viaje contando en todo momento con 
+            		asesoría y el respaldo que solo Pangea Perú - Agencia de viajes puede brindarte.</p>
+        		</div>
+        		<div class="col-12 ">
+            		<button style="border-radius: 18px; color: black; font-weight: bolder; font-size: 14px" type="button" class="btn btn-warning" data-mdb-ripple-init>QUIERO SER PARTE DE PANGEA PERÚ</button>
+        		</div>
+    		</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="row p-3">
+				<div class="col-6">
+					<img alt="pareja" th:src="@{/img/pareja.jpeg}" width="100%">
+				</div>
+				<div class="col-6">
+					<img alt="familia" th:src="@{/img/familia.jpeg}" width="100%">
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!--------------------------->
+
+<section style="background-image: url('/img/fondo0.jpg');">
+    <div class="container" style="padding-top: 50px; padding-bottom: 50px">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 style="color:white; text-align: center"><b>Contáctanos</b></h2>
+                <p style="text-align: justify; color: white">Nuestros asesores estarán disponibles para aclarar todas tus dudas y demostrar que Pangea Perú es confiable, no lo pienses más programa tu aventura hoy mismo.</p>
+                <div class="d-flex align-items-center">
+                    <img alt="localizacion" th:src="@{/img/localizacion.jpg}" style="max-width: 100px;">
+                    <p style="color: white; margin-left: 10px; padding-top: 10px;">Calle German Schreiber 227, oficina 702 - San Isidro</p>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img alt="email" th:src="@{/img/email.jpg}" style="max-width: 100px;">
+                    <a href="mailto:reservas@pangea.com.pe" style="color: white; margin-left: 10px; padding-top: 10px;">reservas@pangea.com.pe</a>
+                </div>
+                <div class="d-flex align-items-center">
+                    <img alt="tel" th:src="@{/img/tel.jpg}" style="max-width: 100px;">
+                    <a href="tel:766-8997" style="color: white; margin-left: 10px; padding-top: 10px;">766-8997</a>
+                </div>
+                <div class="text-center" style="padding-top: 30px;">
+                    <a href="https://web.facebook.com/pangea.com.pe/">
+                        <img alt="facebook" th:src="@{/img/facebook1.jpg}" style="max-width: 50%;">
+                    </a>
+                    <a href="https://www.instagram.com/pangeaperu_vip/">
+                        <img alt="instagram" th:src="@{/img/instagram1.jpg}" style="max-width: 50%; margin-left: 10px;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div>
+                    <h3 style="color:white; text-align: center"><b>¡Reserva tu viaje hoy!</b></h3>
+                </div>
+	                <form action="/pangea/submitFormulario" method="post" style="padding-top: 30px; padding-left: 30px">
+				    <div class="row">
+				        <div class="col">
+				            <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+				        </div>
+				        <div class="col">
+				            <input type="email" class="form-control" placeholder="Email" name="email">
+				        </div>
+				    </div>
+				    <div class="row" style="padding-top: 20px">
+				        <div class="col">
+				            <input type="tel" class="form-control" placeholder="Teléfono" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}" name="telefono">
+				        </div>
+				        <div class="col">
+				            <input type="text" class="form-control" placeholder="Asunto" name="asunto">
+				        </div>
+				    </div>
+				    <div style="padding-top: 20px">
+				        <textarea class="form-control" placeholder="Déjanos un mensaje" name="mensaje"></textarea>
+				    </div>
+				    <div style="padding-top: 20px">
+				        <button type="submit" class="btn btn-primary">Enviar</button>
+				    </div>
+				    <div id="mensaje-exito" style="display: none;"></div>
+				</form>
+            </div>
+        </div>
+    </div>
+</section>
+<a href="https://api.whatsapp.com/send?phone=51949927973&text=Hola%20soy%20soci%40%20de%20Pangea%2C%20quiero%20realizar%20una%20reserva." class="whatsapp-icon" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+<!-- ---------------------------------------------------------- -->
+<script>
+document.addEventListener('DOMContentLoaded', (event) => {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    updateCartCount();
+
+    function updateCartCount() {
+        const cartCount = document.getElementById('cart-count');
+        if (cartCount) {
+            cartCount.textContent = cart.length;
+        }
+    }
+});
+
+document.getElementById("formulario").addEventListener("submit", function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma tradicional
+
+    var formData = new FormData(this);
+
+    fetch("/pangea/submitFormulario", { // Corregir la ruta del formulario
+        method: "POST",
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.text();
+        }
+        throw new Error('Error en la solicitud.');
+    })
+    .then(data => {
+        document.getElementById("mensaje-exito").innerText = data;
+        document.getElementById("mensaje-exito").style.display = "block";
+    })
+    .catch(error => console.error("Error:", error));
+});
+</script>
+    
+</body>
+
+<footer>
+    <section class="mb-5" style="background-image: url('/img/fondoFooter.jpg'); padding: 50px">
+        <div class="container">
+            <div class="row" style="background-color: white; padding-top: 50px; padding-bottom: 0px">
+                <div class="col-md-6">
+                    <img alt="Pangea" th:src="@{/img/logonegro.png}" style="width: 90px; height: 90px">
+                    <p style="text-align: justify;">Nuestra agencia de viajes - Pangea Perú es confiable y nace en el año 2015 con un grupo de estudiantes de turismo a través de una iniciativa que busca replicar los mecanismos de viajes que se emplean en Norteamérica y Europa, motivando a realizar todo tipo de travesías mediante incentivos únicos que logran materializar cada viaje que se tiene pensado.</p>
+                </div>
+                <div class="col-md-6">
+                	<h3 style="color:black; text-align: center"><b>¡Visítanos!</b></h3>
+                   	<img alt="mapa" th:src="@{/img/mapa.png}">
+                </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+		    <img alt="pie" th:src="@{/img/pie.png}">
+			</div>
+        </div>
+        </div>
+    </section>
+    <div> <p style="color:black; text-align: center"> Todos los Derechos Reservados: Copyright Pangea / reservas@pangea.com.pe </p></div>
+</footer>
+</html>
